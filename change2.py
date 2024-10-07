@@ -1,12 +1,12 @@
-import geocoder
+arr = [3, 4, 5, 2, 1]
+print(arr)
 
-def get_state(lat, long):  
-    g = geocoder.osm([lat, long], method='reverse')    
-    return g.state
+for i in range(len(arr)):
+    min_index = i
+    for j in range(i+1, len(arr)):
+        if arr[j] < arr[min_index]:
+            min_index = j
 
-lat = 32.5467483
-long = -86.5315257
+    arr[i], arr[min_index] = arr[min_index], arr[i]
 
-
-state = get_state(lat, long)
-print(state)
+print(arr)
